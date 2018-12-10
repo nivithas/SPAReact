@@ -1,5 +1,5 @@
 import React from 'react';
-class About extends Component {
+class About extends React.Component {
     state = {  }
     render() { 
         return ( <div>
