@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 20px;
+    background-color: lightyellow;
+}
+.header li{
+    background-color: goldenrod;
+    list-style: none;
+    display: inline;
+}
+
+.header li a{
+    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+.content{
+    background-color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+.fade-appear{
+    opacity: 0;
+}
+
+.fade-appear.fade-appear-active{
+    opacity: 1;
+    transform: rotate(180deg);
+}
+  .fade-enter {
+    opacity: 0.01;
+  }
+  
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: 500ms;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+    transition: opacity 300ms ease, height 1000ms ease 1300ms;
+  }
+  
+  .fade-exit.fade-exit-active {
+    opacity: 0.01;
+    height: 0px;
+  }

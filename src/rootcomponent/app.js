@@ -7,7 +7,7 @@ class App extends React.Component {
         return ( 
         <div>
             <div><Menu></Menu></div>
-            <div><Content></Content></div>
+            <div className="content"><Content></Content></div>
         </div> );
     }
 }
