@@ -28,7 +28,6 @@ body{
 
 .fade-appear.fade-appear-active{
     opacity: 1;
-    transform: rotate(180deg);
 }
   .fade-enter {
     opacity: 0.01;
@@ -39,12 +38,4 @@ body{
     transition: 500ms;
   }
   
-  .fade-exit {
-    opacity: 1;
-    transition: opacity 300ms ease, height 1000ms ease 1300ms;
-  }
   
-  .fade-exit.fade-exit-active {
-    opacity: 0.01;
-    height: 0px;
-  }
