@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {CSSTransition} from 'react-transition-group';
+import Friends from './friends';
 class Contact extends React.Component {
     state = {  }
     constructor(props){
@@ -9,7 +10,8 @@ class Contact extends React.Component {
             name:"",
             location:"",
             year:"",
-            submitStatus: ""
+            submitStatus: "",
+            friends: []
         }
         this.captureInputName =this.captureInputName.bind(this)
         this.captureInputLocation =this.captureInputLocation.bind(this)
@@ -22,7 +24,9 @@ class Contact extends React.Component {
         axios.post("http://localhost:8888/add",this.state).then((data)=>{
             // this.setState({submitStatus: data})
             console.log(data)
+            this.getData()
         })
+       
     }
     captureInputName(e){
         console.log(e.target.value)
@@ -42,7 +46,21 @@ class Contact extends React.Component {
             year: e.target.value
         })
     }
+    getData(){
+        axios.get('http://localhost:8888/get').then((frn)=>{
+            console.log(frn.data)
+            this.setState({friends: frn.data})
+        })
+    }
+    componentWillMount(){
+        this.getData()
+    }
     render() { 
+        const displayFriends = this.state.friends.map((f)=>{
+            return(
+                <Friends key={f._id} name={f.name} location={f.location} year={f.year}></Friends>
+            )
+        })
         return ( 
             <CSSTransition
             in={true}
@@ -62,6 +80,9 @@ class Contact extends React.Component {
                 </form>
             </div>
             {this.state.submitStatus}
+            <br></br>
+            <ol>{displayFriends}</ol>
+            
         </div>
         </CSSTransition> );
     }
